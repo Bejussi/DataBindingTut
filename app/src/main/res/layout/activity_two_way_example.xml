@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.bejussi.example.databindingtut.BindingAdapters.Converters"/>
         <variable
             name="weather"
             type="com.bejussi.example.databindingtut.data.WeatherViewModel" />
@@ -28,14 +28,14 @@
                 android:textSize="24sp"
                 android:labelFor="@+id/edCurTemp"/>
 
-<!--            <TextView-->
-<!--                android:id="@+id/edCurTemp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{String.valueOf(weather.current_temp)}"-->
-<!--                android:textSize="24sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginStart="8dp" />-->
+            <TextView
+                android:id="@+id/edCurTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(weather.current_temp)}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -43,18 +43,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
-<!--            <Button-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/btnPlus"-->
-<!--                android:textSize="18sp"-->
-<!--                android:onClick="@{() -> weather.onIncreaseTemp()}"/>-->
-<!--            <Button-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/btnMinus"-->
-<!--                android:textSize="18sp"-->
-<!--                android:onClick="@{() -> weather.onDecreaseTemp()}"/>-->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPlus"
+                android:textSize="18sp"
+                android:onClick="@{() -> weather.onIncreaseTemp()}"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMinus"
+                android:textSize="18sp"
+                android:onClick="@{() -> weather.onDecreaseTemp()}"/>
         </LinearLayout>
 
         <SeekBar
@@ -62,6 +63,7 @@
             android:layout_height="wrap_content"
             android:min="-50"
             android:max="50"
+            android:progress="@={weather.current_temp}"
             android:layout_marginTop="16dp"/>
 
         <LinearLayout
@@ -69,13 +71,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="24sp"-->
-<!--                android:text="@{Converters.tempToDescription(weather.current_temp)}"-->
-<!--                android:textStyle="bold"-->
-<!--                tools:text="TEMP"/>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="@{Converters.tempToDescription(weather.current_temp)}"
+                android:textStyle="bold"
+                tools:text="TEMP"/>
         </LinearLayout>
     </LinearLayout>
 </layout>
