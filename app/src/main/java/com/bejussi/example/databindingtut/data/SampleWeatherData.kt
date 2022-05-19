@@ -8,5 +8,7 @@ data class SampleWeatherData (
 
 {
     // TODO: create a function that operates on the data
-
+    fun convertToF(): Int {
+        return (temp * 9/5) + 32
+    }
 }

@@ -34,7 +34,7 @@
                 android:layout_marginStart="8dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="@{String.valueOf(weather.temp)}"
+                android:text='@{String.valueOf(weather.temp) + "C"}'
                 tools:text="TEMP" />
         </LinearLayout>
 
@@ -57,6 +57,7 @@
                 android:layout_marginStart="8dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:text="@{weather.conditions}"
                 tools:text="TEMP" />
         </LinearLayout>
 
@@ -79,7 +80,8 @@
                 android:layout_marginStart="8dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:text="TEMP" />
+                tools:text="TEMP"
+                android:text="@{String.valueOf(weather.windchill)}"/>
         </LinearLayout>
 
         <LinearLayout
@@ -101,6 +103,7 @@
                 android:layout_marginStart="8dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:text="@{String.valueOf(weather.temp - weather.windchill)}"
                 tools:text="TEMP" />
         </LinearLayout>
 
@@ -123,6 +126,7 @@
                 android:layout_marginStart="8dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:text="@{String.valueOf(weather.convertToF)}"
                 tools:text="TEMP" />
         </LinearLayout>
     </LinearLayout>
