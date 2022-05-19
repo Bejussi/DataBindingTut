@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
         <variable
             name="weather"
             type="com.bejussi.example.databindingtut.data.WeatherViewModel" />
@@ -28,15 +28,15 @@
                 android:text="@string/current_temp"
                 android:textSize="24sp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/fieldCurrentTemp"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{Integer.toString(weather.current_temp)}"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:textSize="24sp"-->
-<!--                tools:text="TEMP"-->
-<!--                android:textStyle="bold" />-->
+            <TextView
+                android:id="@+id/fieldCurrentTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Integer.toString(weather.current_temp)}"
+                android:layout_marginStart="8dp"
+                android:textSize="24sp"
+                tools:text="TEMP"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -51,15 +51,15 @@
                 android:text="@string/current_cond"
                 android:textSize="24sp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/fieldConditions"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{weather.current_cond}"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:textSize="24sp"-->
-<!--                tools:text="TEMP"-->
-<!--                android:textStyle="bold"/>-->
+            <TextView
+                android:id="@+id/fieldConditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{weather.current_cond}"
+                android:layout_marginStart="8dp"
+                android:textSize="24sp"
+                tools:text="TEMP"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -74,15 +74,15 @@
                 android:text="@string/wind_chill"
                 android:textSize="24sp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/fieldWindChill"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{Integer.toString(weather.current_windchill)}"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:textSize="24sp"-->
-<!--                tools:text="TEMP"-->
-<!--                android:textStyle="bold"/>-->
+            <TextView
+                android:id="@+id/fieldWindChill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Integer.toString(weather.current_windchill)}"
+                android:layout_marginStart="8dp"
+                android:textSize="24sp"
+                tools:text="TEMP"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -95,17 +95,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/feels_like"
+                app:hideIfZero="@{weather.current_windchill}"
                 android:textSize="24sp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/fieldFeelsLike"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="24sp"-->
-<!--                android:text="@{Integer.toString(weather.current_temp - weather.current_windchill)}"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                tools:text="TEMP"/>-->
+            <TextView
+                android:id="@+id/fieldFeelsLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="@{Integer.toString(weather.current_temp - weather.current_windchill)}"
+                app:hideIfZero="@{weather.current_windchill}"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                tools:text="TEMP"/>
         </LinearLayout>
 
         <LinearLayout
@@ -124,20 +126,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-<!--                <Button-->
-<!--                    android:id="@+id/btnTempUp"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/btnPlus"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:onClick="@{() -> weather.onIncreaseTemp()}"/>-->
-<!--                <Button-->
-<!--                    android:id="@+id/btnTempDown"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/btnMinus"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:onClick="@{() -> weather.onDecreaseTemp()}"/>-->
+                <Button
+                    android:id="@+id/btnTempUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnPlus"
+                    android:textSize="18sp"
+                    android:onClick="@{() -> weather.onIncreaseTemp()}"/>
+                <Button
+                    android:id="@+id/btnTempDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnMinus"
+                    android:textSize="18sp"
+                    android:onClick="@{() -> weather.onDecreaseTemp()}"/>
             </LinearLayout>
         </LinearLayout>
 

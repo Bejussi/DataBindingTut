@@ -18,6 +18,6 @@ class ViewModExample : AppCompatActivity() {
 
         binding.weather = viewModel
         // TODO: set the lifecycle owner to the Activity
-
+        binding.lifecycleOwner = this
     }
 }
